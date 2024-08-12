@@ -1,3 +1,33 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": "next/core-web-vitals",
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "env": {
+    "commonjs": true,
+    "browser": true,
+    "es6": true
+  },
+  "plugins": ["import", "react", "react-hooks"],
+  "rules": {
+    "keyword-spacing": 2,
+    "react-hooks/rules-of-hooks": "off",
+    "react-hooks/exhaustive-deps": "off",
+    "testing-library/no-unnecessary-act": "off",
+    "testing-library/no-wait-for-side-effects": "off",
+    "testing-library/render-result-naming-convention": "off",
+    "testing-library/no-container": "off",
+    "import/no-anonymous-default-export": [
+      "error",
+      {
+        "allowArray": true,
+        "allowArrowFunction": true,
+        "allowAnonymousClass": true,
+        "allowAnonymousFunction": true,
+        "allowCallExpression": true,
+        "allowLiteral": true,
+        "allowObject": true
+      }
+    ]
+  }
 }

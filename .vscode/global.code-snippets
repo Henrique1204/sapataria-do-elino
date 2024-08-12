@@ -1,0 +1,82 @@
+{
+  "Create Component": {
+    "prefix": [
+      "client-component-init",
+      "mci"
+    ],
+    "body": [
+      "'use client';",
+      "import React from 'react';",
+      "\nconst $1ComponentName: Component = () => {",
+      "\treturn <></>;",
+      "};",
+      "\nexport default $1ComponentName;",
+      ""
+    ],
+    "description": "Create component with arrow function and Component typing."
+  },
+  "Create Component with Styles": {
+    "prefix": [
+      "component-styles",
+      "mcs"
+    ],
+    "body": [
+      "'use client';",
+      "import React from 'react';",
+      "",
+      "import * as Styles from 'styles.ts';",
+      "\nconst $1ComponentName: Component = () => {",
+      "\treturn <></>;",
+      "};",
+      "\nexport default $1ComponentName;",
+      ""
+    ],
+    "description": "Create component with arrow function, Component typing and import of styles."
+  },
+  "Create Page": {
+    "prefix": [
+      "create-page",
+      "mcp"
+    ],
+    "body": [
+      "\nconst $1PageName: Page<$2PageEnum> = async () => {",
+      "\treturn <></>;",
+      "};",
+      "\nexport default $1PageName;",
+      ""
+    ],
+    "description": "Create page example."
+  },
+  "Inicialize Styled Component": {
+    "prefix": [
+      "styled-init",
+      "msi"
+    ],
+    "body": [
+      "import styled from 'styled-components';",
+      "\nexport const Container = styled.div`$1`;",
+      ""
+    ],
+    "description": "Start component styles."
+  },
+  "Import styles": {
+    "prefix": [
+      "import-styles",
+      "mis"
+    ],
+    "body": [
+      "import * as Styles from './styles.ts';"
+    ],
+    "description": "Import styles."
+  },
+  "Import Component Props Type": {
+    "prefix": [
+      "import-props-type",
+      "mipt"
+    ],
+    "body": [
+      "import * as Types from './types.ts';"
+    ],
+    "description": "Import props type."
+  }
+}
