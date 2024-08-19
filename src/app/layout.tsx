@@ -1,5 +1,9 @@
 import type { Metadata } from 'next';
 
+import { fontPrimary, fontSecondary } from 'core/assets/font';
+
+import './global.css';
+
 export const metadata: Metadata = {
 	title: 'Sapataria do Elino',
 	description: '',
@@ -11,7 +15,10 @@ const RootLayout = ({
 	children: React.ReactNode;
 }>) => {
 	return (
-		<html lang='pt-BR'>
+		<html
+			className={`${fontPrimary.variable} ${fontSecondary.variable}`}
+			lang='pt-BR'
+		>
 			<body>{children}</body>
 		</html>
 	);
