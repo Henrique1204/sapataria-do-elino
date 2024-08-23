@@ -11,6 +11,7 @@ module.exports = {
 			body: ['var(--font-secondary-axiforma)', 'sans-serif'],
 		},
 		colors: {
+			transparent: 'transparent',
 			primary: {
 				light: '#F0C23C',
 				main: '#F0AC3C',
@@ -19,7 +20,8 @@ module.exports = {
 			secondary: {
 				light: '#56342E',
 				main: '#462521',
-				dark: '#2E1615',
+				dark: '#130A02',
+				darker: '#0A0501',
 			},
 			success: {
 				darker: '#008C38',
@@ -54,6 +56,26 @@ module.exports = {
 				light: '#D6D1CD',
 				main: '#ACA39B',
 				dark: '#0A0501',
+			},
+		},
+		extend: {
+			boxShadow: {
+				['button-primary']: '0 0 0 3px #0A0501, 0 0 0 4px #F0AC3C',
+				['button-secondary']: '0 0 0 3px #F0AC3C, 0 0 0 4px #0A0501',
+			},
+			keyframes: {
+				slideDown: {
+					'0%': { transform: 'translateY(-100%)' },
+					'100%': { transform: 'translateY(0)' },
+				},
+				slideUp: {
+					'0%': { transform: 'translateY(0)' },
+					'100%': { transform: 'translateY(-100%)' },
+				},
+			},
+			animation: {
+				['slide-down']: 'slideDown 0.5s ease-out forwards',
+				['slide-up']: 'slideUp 0.5s ease-out forwards',
 			},
 		},
 	},
