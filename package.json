@@ -14,6 +14,7 @@
 		"tailwind:init": "npx tailwindcss init"
 	},
 	"dependencies": {
+		"classnames": "^2.5.1",
 		"next": "14.2.5",
 		"react": "^18",
 		"react-dom": "^18"

@@ -1,5 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 
+const plugin = require('tailwindcss/plugin');
+
 module.exports = {
 	content: [
 		'./src/Components/**/*.{js,ts,jsx,tsx,mdx}',
@@ -79,5 +81,45 @@ module.exports = {
 			},
 		},
 	},
-	plugins: [],
+	plugins: [
+		plugin(function ({ addUtilities }) {
+			const MD_BREAKPOINT = '@media (min-width: 768px)';
+			const TOTAL_OF_COLUMNS = 8;
+
+			const COL_WIDTH_SM = 28;
+			const COL_WIDTH_MD = 151;
+
+			const GAP_SM = 16;
+			const GAP_MD = 24;
+
+			const newUtilities = {
+				'.grid-gap': {
+					gap: `${GAP_SM}px`,
+				},
+				[MD_BREAKPOINT]: {
+					'.grid-gap': {
+						gap: `${GAP_MD}px!important`,
+					},
+				},
+			};
+
+			for (let i = 1; i <= TOTAL_OF_COLUMNS; i++) {
+				newUtilities[`.col-${i}`] = {
+					width: '100%',
+					maxWidth: `calc(${i} * ${COL_WIDTH_SM}px + (${
+						i - 1
+					} * ${GAP_SM}px) )`,
+				};
+
+				newUtilities[MD_BREAKPOINT][`.col-${i}`] = {
+					width: '100%',
+					maxWidth: `calc(${i} * ${COL_WIDTH_MD}px + (${
+						i - 1
+					} * ${GAP_MD}px) )!important`,
+				};
+			}
+
+			addUtilities(newUtilities, ['responsive']);
+		}),
+	],
 };
