@@ -1,8 +1,10 @@
+import { LINKS } from './constants';
+
 import * as Types from '../Link/types';
 
-import * as Links from '../Link';
+import Link from '../Link';
 
-import { LINKS } from './constants';
+import Button from 'components/Button';
 
 export const Navigation: Component<Pick<Types.LinkProps, 'variant'>> = ({
 	variant = 'primary',
@@ -16,14 +18,16 @@ export const Navigation: Component<Pick<Types.LinkProps, 'variant'>> = ({
 					if (isButton) {
 						return (
 							<li key={key}>
-								<Links.LinkButton label={label} href={href} variant={variant} />
+								<Button as={'a'} href={href} variant={variant}>
+									{label}
+								</Button>
 							</li>
 						);
 					}
 
 					return (
 						<li key={key}>
-							<Links.Link label={label} href={href} variant={variant} />
+							<Link label={label} href={href} variant={variant} />
 						</li>
 					);
 				})}
