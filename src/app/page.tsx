@@ -1,7 +1,10 @@
+import Introduction from 'components/Home/Introduction';
+
 const Home: Page<'Home'> = async () => {
 	return (
 		<>
-			<section>Apresentação</section>
+			<Introduction />
+
 			<main>Serviços</main>
 			<section>Contato</section>
 		</>

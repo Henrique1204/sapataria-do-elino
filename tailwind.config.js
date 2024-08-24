@@ -79,6 +79,9 @@ module.exports = {
 				['slide-down']: 'slideDown 0.5s ease-out forwards',
 				['slide-up']: 'slideUp 0.5s ease-out forwards',
 			},
+			fontSize: {
+				'4.5xl': ['40px', '60px'],
+			},
 		},
 	},
 	plugins: [
