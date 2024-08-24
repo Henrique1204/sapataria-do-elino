@@ -1,12 +1,13 @@
-import Introduction from 'components/Home/Introduction';
+import * as HomeContent from 'components/Home';
 
 const Home: Page<'Home'> = async () => {
 	return (
 		<>
-			<Introduction />
+			<HomeContent.Introduction />
 
-			<main>Serviços</main>
-			<section>Contato</section>
+			<HomeContent.Service />
+
+			<HomeContent.Contact />
 		</>
 	);
 };

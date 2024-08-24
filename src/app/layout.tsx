@@ -21,7 +21,7 @@ const RootLayout = ({
 			className={`${fontPrimary.variable} ${fontSecondary.variable}`}
 			lang='pt-BR'
 		>
-			<body className='bg-secondary-dark text-content-light'>
+			<body className='bg-secondary-darker text-content-light'>
 				<Header />
 
 				{children}

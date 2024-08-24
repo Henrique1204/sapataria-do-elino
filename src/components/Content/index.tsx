@@ -15,7 +15,7 @@ export const Title: Component<Types.TitleProps> = ({ content, className }) => {
 
 export const Wrapper: ComponentWithChildren<Types.WrapperProps> = ({
 	as = 'section',
-	variant,
+	variant = 'primary',
 	className,
 	children,
 }) => {
@@ -24,8 +24,8 @@ export const Wrapper: ComponentWithChildren<Types.WrapperProps> = ({
 	const classByVariant = classNames(
 		'px-8 py-20 flex justify-center grid-gap',
 		{
-			'bg-secondary-darker': variant === 'primary',
-			'bg-transparent': variant === 'secondary',
+			'bg-transparent': variant === 'primary',
+			'bg-secondary-dark': variant === 'secondary',
 		},
 		className
 	);

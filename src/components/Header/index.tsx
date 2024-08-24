@@ -11,9 +11,9 @@ import { Navigation } from './Navigation';
 
 const FixedHeader: Component = () => {
 	return (
-		<header className='bg-secondary-dark px-8 pt-10 flex items-center justify-between'>
+		<header className='bg-transparent px-8 pt-10 flex items-center justify-between'>
 			<Image
-				className='w-40'
+				className='w-36'
 				src='/images/logo-amarelo.png'
 				alt='Sapataria do Elino'
 				width={128}
