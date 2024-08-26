@@ -14,14 +14,23 @@ const Price: Component<Types.PriceProps> = ({
 	price,
 	uponRequest = false,
 	fromOrPer = false,
+	className,
 }) => {
-	if (uponRequest) return <span>Sob Consulta</span>;
+	const priceClassNames = classNames(
+		'text-content-main text-end',
+		{
+			'text-nowrap': !fromOrPer,
+		},
+		className
+	);
+
+	if (uponRequest) return <span className={priceClassNames}>Sob Consulta</span>;
 
 	if (price !== undefined) {
 		const formattedPrice = formatMoney(price);
 
 		return (
-			<span>
+			<span className={priceClassNames}>
 				{formattedPrice} {fromOrPer ? '(a partir / par)' : ''}
 			</span>
 		);
@@ -76,17 +85,15 @@ const ServicesList: Component<Types.ServiceListProps> = ({
 
 					return (
 						<li key={`${testId}-item-${id}`} className={itemClassNames}>
-							<span className='text-content-light text-start break-words'>
+							<span className='text-content-light text-start break-words w-full'>
 								{name}
 							</span>
 
-							<span className='text-content-main text-end text-nowrap'>
-								<Price
-									price={price}
-									fromOrPer={fromOrPer}
-									uponRequest={uponRequest}
-								/>
-							</span>
+							<Price
+								price={price}
+								fromOrPer={fromOrPer}
+								uponRequest={uponRequest}
+							/>
 						</li>
 					);
 				})}
