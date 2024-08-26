@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import { fontPrimary, fontSecondary } from 'core/assets/font';
 
 import Header from 'components/Header';
+import Footer from 'components/Footer';
 
 import './global.css';
 
@@ -29,6 +30,8 @@ const RootLayout = ({
 				<Header />
 
 				{children}
+
+				<Footer />
 			</body>
 		</html>
 	);

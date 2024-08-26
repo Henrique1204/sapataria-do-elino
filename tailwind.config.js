@@ -102,6 +102,16 @@ module.exports = {
 			const GAP_MD = 24;
 
 			const newUtilities = {
+				'.container': {
+					width: '1376px',
+					marginLeft: 'auto',
+					marginRight: 'auto',
+					display: 'flex',
+					justifyContent: 'center',
+					alignItems: 'flex-start',
+					gap: `${GAP_SM}px`,
+					flexWrap: 'wrap',
+				},
 				'.grid-gap': {
 					gap: `${GAP_SM}px`,
 				},

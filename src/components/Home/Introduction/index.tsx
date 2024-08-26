@@ -7,7 +7,7 @@ import Button from 'components/Button';
 
 const Introduction: Component = () => {
 	return (
-		<Content.Wrapper>
+		<Content.Wrapper className='container'>
 			<Image
 				className='col-3 h-[620px] rounded-xl grid-gap'
 				src='/images/introduction-banner-md.jpg'

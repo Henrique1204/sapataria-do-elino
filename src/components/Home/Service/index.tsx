@@ -19,7 +19,7 @@ const Service = async () => {
 		>
 			<Content.Title content='Serviços' />
 
-			<div className='w-full flex grid-gap justify-center items-start'>
+			<div className='container'>
 				{servicesByCategory.map(({ category, services, imageSrc, title }) => (
 					<Card.Wrapper key={category} className='col-2'>
 						<Image
