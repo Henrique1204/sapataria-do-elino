@@ -5,12 +5,12 @@ import classNames from 'classnames';
 import * as Types from './types';
 
 export const Title: Component<Types.TitleProps> = ({ content, className }) => {
-	const classByVariant = classNames(
+	const titleClassNames = classNames(
 		'font-title text-4.5xl text-content-lighter',
 		className
 	);
 
-	return <h1 className={classByVariant}>{content}</h1>;
+	return <h1 className={titleClassNames}>{content}</h1>;
 };
 
 export const Wrapper: ComponentWithChildren<Types.WrapperProps> = ({
@@ -21,7 +21,7 @@ export const Wrapper: ComponentWithChildren<Types.WrapperProps> = ({
 }) => {
 	const Component = as;
 
-	const classByVariant = classNames(
+	const wrapperClassNames = classNames(
 		'px-8 py-20 flex justify-center',
 		{
 			'bg-transparent': variant === 'primary',
@@ -30,5 +30,5 @@ export const Wrapper: ComponentWithChildren<Types.WrapperProps> = ({
 		className
 	);
 
-	return <Component className={classByVariant}>{children}</Component>;
+	return <Component className={wrapperClassNames}>{children}</Component>;
 };

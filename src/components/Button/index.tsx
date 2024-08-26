@@ -13,7 +13,7 @@ const Button: ComponentWithChildren<Types.ButtonProps> = ({
 }) => {
 	const Component = as;
 
-	const customClassName = classNames(
+	const buttonClassNames = classNames(
 		'font-body px-4 py-3 text-base rounded-md capitalize font-semibold block',
 		{
 			'text-content-dark bg-primary-main hover:shadow-button-primary focus:shadow-button-primary':
@@ -25,7 +25,7 @@ const Button: ComponentWithChildren<Types.ButtonProps> = ({
 	);
 
 	return (
-		<Component className={customClassName} {...(props as any)}>
+		<Component className={buttonClassNames} {...(props as any)}>
 			{children}
 		</Component>
 	);

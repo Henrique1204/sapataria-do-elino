@@ -3,6 +3,8 @@ import React from 'react';
 
 import Image from 'next/image';
 
+import classNames from 'classnames';
+
 import createDebounce from 'core/utils/debounce';
 
 import useAnimatedRendering from 'hooks/useAnimatedRendering';
@@ -27,10 +29,13 @@ const FixedHeader: Component = () => {
 };
 
 const ScrollingHeader: Component = ({ className }) => {
+	const scrollingHeaderClassNames = classNames(
+		'bg-primary-main px-8 py-4 flex items-center justify-between fixed top-0 w-full shadow-xl',
+		className
+	);
+
 	return (
-		<header
-			className={`bg-primary-main px-8 py-4 flex items-center justify-between fixed top-0 w-full shadow-xl ${className}`}
-		>
+		<header className={scrollingHeaderClassNames}>
 			<Image
 				className='w-16'
 				src='/images/logo-marrom.png'

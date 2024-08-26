@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 
+import classNames from 'classnames';
+
 import { fontPrimary, fontSecondary } from 'core/assets/font';
 
 import Header from 'components/Header';
@@ -16,11 +18,13 @@ const RootLayout = ({
 }: Readonly<{
 	children: React.ReactNode;
 }>) => {
+	const rootClassNames = classNames(
+		fontPrimary.variable,
+		fontSecondary.variable
+	);
+
 	return (
-		<html
-			className={`${fontPrimary.variable} ${fontSecondary.variable}`}
-			lang='pt-BR'
-		>
+		<html className={rootClassNames} lang='pt-BR'>
 			<body className='bg-secondary-darker text-content-light'>
 				<Header />
 
