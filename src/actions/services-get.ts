@@ -27,12 +27,12 @@ const servicesGet = async (): Promise<ServicesByCategory[]> => {
 	const LEATHER_SERVICES: Service[] = [
 		{
 			id: 1,
-			name: 'Conserto de Itens em Couro (Bolsas, Roupas, Sapatos)',
+			name: 'Conserto de Itens',
 			uponRequest: true,
 		},
 		{
 			id: 2,
-			name: 'Pintura de Itens em Couro',
+			name: 'Pintura de Itens',
 			uponRequest: true,
 		},
 		{
