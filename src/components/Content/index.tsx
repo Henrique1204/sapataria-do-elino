@@ -22,7 +22,7 @@ export const Wrapper: ComponentWithChildren<Types.WrapperProps> = ({
 	const Component = as;
 
 	const classByVariant = classNames(
-		'px-8 py-20 flex justify-center grid-gap',
+		'px-8 py-20 flex justify-center',
 		{
 			'bg-transparent': variant === 'primary',
 			'bg-secondary-dark': variant === 'secondary',

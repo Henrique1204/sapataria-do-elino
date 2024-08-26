@@ -5,6 +5,7 @@ const Home: Page<'Home'> = async () => {
 		<>
 			<HomeContent.Introduction />
 
+			{/* @ts-expect-error Async Server Component */}
 			<HomeContent.Service />
 
 			<HomeContent.Contact />

@@ -61,6 +61,12 @@ module.exports = {
 			},
 		},
 		extend: {
+			backgroundImage: {
+				'card-gradient': 'linear-gradient(to bottom, #0A0501 80%, #201C15)',
+			},
+			transitionProperty: {
+				'max-height': 'max-height',
+			},
 			boxShadow: {
 				['button-primary']: '0 0 0 3px #0A0501, 0 0 0 4px #F0AC3C',
 				['button-secondary']: '0 0 0 3px #F0AC3C, 0 0 0 4px #0A0501',
@@ -76,8 +82,8 @@ module.exports = {
 				},
 			},
 			animation: {
-				['slide-down']: 'slideDown 0.5s ease-out forwards',
-				['slide-up']: 'slideUp 0.5s ease-out forwards',
+				'slide-down': 'slideDown 0.5s ease-out forwards',
+				'slide-up': 'slideUp 0.5s ease-out forwards',
 			},
 			fontSize: {
 				'4.5xl': ['40px', '60px'],

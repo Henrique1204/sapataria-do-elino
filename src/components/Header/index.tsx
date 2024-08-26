@@ -29,7 +29,7 @@ const FixedHeader: Component = () => {
 const ScrollingHeader: Component = ({ className }) => {
 	return (
 		<header
-			className={`bg-primary-main px-8 py-4 flex items-center justify-between fixed top-0 w-full ${className}`}
+			className={`bg-primary-main px-8 py-4 flex items-center justify-between fixed top-0 w-full shadow-xl ${className}`}
 		>
 			<Image
 				className='w-16'

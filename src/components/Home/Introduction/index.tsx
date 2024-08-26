@@ -9,7 +9,7 @@ const Introduction: Component = () => {
 	return (
 		<Content.Wrapper>
 			<Image
-				className='col-3 h-[620px] rounded-lg'
+				className='col-3 h-[620px] rounded-xl grid-gap'
 				src='/images/introduction-banner-md.jpg'
 				alt='Foto monstrando um sapateiro trabalhando.'
 				width={600}
