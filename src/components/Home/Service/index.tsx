@@ -13,7 +13,7 @@ const Service = async () => {
 
 	return (
 		<Content.Wrapper
-			id='service'
+			id='servicos'
 			as='main'
 			variant='secondary'
 			className='flex flex-col items-center gap-14'

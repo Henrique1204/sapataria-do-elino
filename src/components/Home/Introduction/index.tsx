@@ -1,13 +1,16 @@
+'use client';
 import React from 'react';
 
 import Image from 'next/image';
+
+import { handleScrollToSection } from 'core/utils/events/handleScrollToSection';
 
 import * as Content from 'components/Content';
 import Button from 'components/Button';
 
 const Introduction: Component = () => {
 	return (
-		<Content.Wrapper id='introduction' className='container'>
+		<Content.Wrapper id='sobre' className='container'>
 			<Image
 				className='col-3 h-[620px] rounded-xl grid-gap'
 				src='/images/introduction-banner-md.jpg'
@@ -27,11 +30,14 @@ const Introduction: Component = () => {
 
 				<p className='text-content-main font-body text-xl'>
 					Ao longo da minha carreira, trabalhei em diversas sapatarias pelo
-					estado de São Paulo e mantive minha própria sapataria no bairro de
-					Vargem Grande.
+					estado de São Paulo e mantive minha própria sapataria no bairro Vargem
+					Grande.
 				</p>
 
-				<Button className='px-6 text-xl bold mt-10' href=''>
+				<Button
+					className='px-6 text-xl bold mt-10'
+					onClick={handleScrollToSection('#contato')}
+				>
 					Contato
 				</Button>
 			</div>

@@ -84,6 +84,11 @@ const Header: Component = () => {
 		};
 	}, []);
 
+	React.useEffect(() => {
+		const SCROLL_THRESHOLD = 500;
+		if (window.pageYOffset > SCROLL_THRESHOLD) showScrollingHeader();
+	}, []);
+
 	return (
 		<>
 			<FixedHeader />
