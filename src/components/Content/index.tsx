@@ -18,6 +18,7 @@ export const Wrapper: ComponentWithChildren<Types.WrapperProps> = ({
 	variant = 'primary',
 	className,
 	children,
+	...props
 }) => {
 	const Component = as;
 
@@ -30,5 +31,9 @@ export const Wrapper: ComponentWithChildren<Types.WrapperProps> = ({
 		className
 	);
 
-	return <Component className={wrapperClassNames}>{children}</Component>;
+	return (
+		<Component {...props} className={wrapperClassNames}>
+			{children}
+		</Component>
+	);
 };

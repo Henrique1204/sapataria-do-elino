@@ -30,7 +30,7 @@ const FixedHeader: Component = () => {
 
 const ScrollingHeader: Component = ({ className }) => {
 	const scrollingHeaderClassNames = classNames(
-		'bg-primary-main px-8 py-4 flex items-center justify-between fixed top-0 w-full shadow-xl',
+		'bg-primary-main px-8 py-4 flex items-center justify-between fixed z-10 top-0 w-full shadow-xl',
 		className
 	);
 

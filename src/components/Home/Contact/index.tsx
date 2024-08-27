@@ -5,7 +5,7 @@ import * as ContactInfo from 'components/ContactInfo';
 
 const Contact: Component = () => {
 	return (
-		<Content.Wrapper className='flex flex-col items-center gap-14'>
+		<Content.Wrapper id='contact' className='flex flex-col items-center gap-14'>
 			<Content.Title content='Contato' />
 
 			<div className='container'>
