@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 const Footer: Component = () => {
 	return (
-		<footer className='container pb-5'>
+		<footer className='container flex-wrap pb-5 px-8'>
 			<div className='col-6 flex gap-4 items-center'>
 				<Image
 					className='w-14'

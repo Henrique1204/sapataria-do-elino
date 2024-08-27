@@ -103,14 +103,14 @@ module.exports = {
 
 			const newUtilities = {
 				'.container': {
-					width: '1376px',
+					width: '100%',
+					maxWidth: '1376px',
 					marginLeft: 'auto',
 					marginRight: 'auto',
 					display: 'flex',
 					justifyContent: 'center',
 					alignItems: 'flex-start',
 					gap: `${GAP_SM}px`,
-					flexWrap: 'wrap',
 				},
 				'.grid-gap': {
 					gap: `${GAP_SM}px`,

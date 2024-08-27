@@ -19,7 +19,7 @@ const Price: Component<Types.PriceProps> = ({
 	const priceClassNames = classNames(
 		'text-content-main text-end',
 		{
-			'text-nowrap': !fromOrPer,
+			'lg:text-nowrap sm:text-wrap text-nowrap': uponRequest,
 		},
 		className
 	);

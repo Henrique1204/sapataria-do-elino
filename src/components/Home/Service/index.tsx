@@ -16,13 +16,13 @@ const Service = async () => {
 			id='servicos'
 			as='main'
 			variant='secondary'
-			className='flex flex-col items-center gap-14'
+			className='flex flex-col items-center gap-14 pr-0 lg:pr-8'
 		>
 			<Content.Title content='Serviços' />
 
-			<div className='container'>
+			<div className='container !justify-start lg:!justify-center hideScrollbar overflow-x-scroll lg:overflow-x-auto'>
 				{servicesByCategory.map(({ category, services, imageSrc, title }) => (
-					<Card.Wrapper key={category} className='col-2'>
+					<Card.Wrapper key={category} className='col-2 sm:min-w-[320px]'>
 						<Image
 							src={imageSrc}
 							alt='Imagem ilustrativa de sapatos para conserto.'

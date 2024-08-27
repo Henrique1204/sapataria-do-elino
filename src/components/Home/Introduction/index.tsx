@@ -12,7 +12,7 @@ const Introduction: Component = () => {
 	return (
 		<Content.Wrapper id='sobre' className='container'>
 			<Image
-				className='col-3 h-[620px] rounded-xl grid-gap'
+				className='lg:col-3 lg:h-[620px] sm:-2 sm:h-[520px] rounded-xl grid-gap'
 				src='/images/introduction-banner-md.jpg'
 				alt='Foto monstrando um sapateiro trabalhando.'
 				width={600}
@@ -20,7 +20,7 @@ const Introduction: Component = () => {
 				priority
 			/>
 
-			<div className='col-3 flex flex-col items-start justify-start pl-12'>
+			<div className='col-3 flex flex-col items-start justify-start lg:pl-12 sm:pl-6'>
 				<Content.Title content='Sapataria do Elino' className='mb-6' />
 
 				<p className='text-content-main font-body text-xl mb-4'>
