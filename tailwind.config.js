@@ -104,10 +104,11 @@ module.exports = {
 			const newUtilities = {
 				'.container': {
 					width: '100%',
-					maxWidth: '1376px',
+					maxWidth: '360px',
+					display: 'flex',
 					marginLeft: 'auto',
 					marginRight: 'auto',
-					display: 'flex',
+					flexDirection: 'column',
 					justifyContent: 'center',
 					alignItems: 'flex-start',
 					gap: `${GAP_SM}px`,
@@ -117,6 +118,13 @@ module.exports = {
 				},
 				[MD_BREAKPOINT]: {
 					'.grid-gap': {
+						gap: `${GAP_MD}px!important`,
+					},
+					'.container': {
+						maxWidth: '1376px!important',
+						flexDirection: 'row!important',
+						justifyContent: 'center!important',
+						alignItems: 'flex-start!important',
 						gap: `${GAP_MD}px!important`,
 					},
 				},

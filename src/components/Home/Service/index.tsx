@@ -20,9 +20,12 @@ const Service = async () => {
 		>
 			<Content.Title content='Serviços' />
 
-			<div className='container !justify-start lg:!justify-center hideScrollbar overflow-x-scroll lg:overflow-x-auto'>
+			<div className='container !flex-row !justify-start lg:!justify-center hideScrollbar overflow-x-scroll lg:overflow-x-auto !pr-4'>
 				{servicesByCategory.map(({ category, services, imageSrc, title }) => (
-					<Card.Wrapper key={category} className='col-2 sm:min-w-[320px]'>
+					<Card.Wrapper
+						key={category}
+						className='col-8 min-w-[300px] sm:min-w-[320px] sm:col-2'
+					>
 						<Image
 							src={imageSrc}
 							alt='Imagem ilustrativa de sapatos para conserto.'

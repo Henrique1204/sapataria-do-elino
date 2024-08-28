@@ -6,7 +6,7 @@ import * as Types from './types';
 
 export const Title: Component<Types.TitleProps> = ({ content, className }) => {
 	const titleClassNames = classNames(
-		'font-title text-4.5xl text-content-lighter',
+		'w-full text-center font-title text-3xl text-content-lighter sm:text-4.5xl',
 		className
 	);
 
@@ -23,7 +23,7 @@ export const Wrapper: ComponentWithChildren<Types.WrapperProps> = ({
 	const Component = as;
 
 	const wrapperClassNames = classNames(
-		'px-8 py-20 flex justify-center',
+		'px-4 py-10 flex justify-center sm:px-8 sm:py-20',
 		{
 			'bg-transparent': variant === 'primary',
 			'bg-secondary-dark': variant === 'secondary',
