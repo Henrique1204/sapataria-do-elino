@@ -24,7 +24,8 @@ export const Info: Component<Types.InfoProps> = ({
 	const infoClassNames = classNames(
 		'font-body text-base text-content-main mb-2 not-italic',
 		{
-			'underline underline-offset-4 text-primary-main block': as === 'a',
+			'underline underline-offset-4 text-primary-main block hover:text-primary-light focus:text-primary-light':
+				as === 'a',
 		},
 		className
 	);

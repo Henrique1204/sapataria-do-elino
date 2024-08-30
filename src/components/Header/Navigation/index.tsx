@@ -11,7 +11,7 @@ export const Navigation: Component<Pick<Types.LinkProps, 'variant'>> = ({
 	return (
 		<>
 			<MobileNavigation />
-			<DesktopNavigation className={variant} />
+			<DesktopNavigation variant={variant} />
 		</>
 	);
 };
