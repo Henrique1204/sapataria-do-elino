@@ -45,4 +45,4 @@ const Service = async () => {
 	);
 };
 
-export default Service;
+export default Service as any as Component;
