@@ -3,10 +3,7 @@
 const plugin = require('tailwindcss/plugin');
 
 module.exports = {
-	content: [
-		'./src/Components/**/*.{js,ts,jsx,tsx,mdx}',
-		'./src/app/**/*.{js,ts,jsx,tsx,mdx}',
-	],
+	content: ['./src/**/*.{js,ts,jsx,tsx}'],
 	theme: {
 		fontFamily: {
 			title: ['var(--font-primary-poppins)', 'sans-serif'],
