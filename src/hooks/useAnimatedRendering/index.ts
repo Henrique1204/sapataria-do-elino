@@ -7,6 +7,8 @@ import { UseAnimatedRenderingFn } from './type';
 const useAnimatedRendering: UseAnimatedRenderingFn = ({
 	initialRenderState,
 	animationDuration = 500,
+	onHide,
+	onShow,
 }) => {
 	const [isRendered, setIsRendered] =
 		React.useState<boolean>(initialRenderState);
@@ -17,6 +19,8 @@ const useAnimatedRendering: UseAnimatedRenderingFn = ({
 	const timeoutRef = React.useRef<NodeJS.Timeout | null>(null);
 
 	const hideElement = () => {
+		onHide?.();
+
 		if (timeoutRef.current) {
 			clearTimeout(timeoutRef.current);
 			timeoutRef.current = null;
@@ -31,6 +35,8 @@ const useAnimatedRendering: UseAnimatedRenderingFn = ({
 	};
 
 	const showElement = () => {
+		onShow?.();
+
 		setIsRendered(true);
 		setIsEntering(true);
 	};

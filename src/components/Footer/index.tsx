@@ -5,7 +5,7 @@ import Image from 'next/image';
 const Footer: Component = () => {
 	return (
 		<footer className='container flex-wrap pb-5 px-8'>
-			<div className='col-6 flex gap-4 items-center'>
+			<div className='col-8 flex gap-4 items-center justify-center sm:justify-start'>
 				<Image
 					className='w-14'
 					src='/images/logo-amarelo.png'
@@ -15,7 +15,7 @@ const Footer: Component = () => {
 					priority
 				/>
 
-				<h3 className='font-title text-sm text-content-main'>
+				<h3 className='font-title text-sm text-content-main w-fit sm:w-auto'>
 					Sapataria do Elino
 				</h3>
 			</div>

@@ -6,6 +6,7 @@ import Image from 'next/image';
 import classNames from 'classnames';
 
 import createDebounce from 'core/utils/debounce';
+import MenuMobileEvents from 'core/utils/events/customEvents/menuMobile';
 
 import useAnimatedRendering from 'hooks/useAnimatedRendering';
 
@@ -13,9 +14,9 @@ import { Navigation } from './Navigation';
 
 const FixedHeader: Component = () => {
 	return (
-		<header className='bg-transparent px-8 pt-10 flex items-center justify-between'>
+		<header className='bg-transparent px-5 pt-10 flex items-center justify-between sm:px-8'>
 			<Image
-				className='w-36'
+				className='w-12 sm:w-36'
 				src='/images/logo-amarelo.png'
 				alt='Sapataria do Elino'
 				width={128}
@@ -30,14 +31,18 @@ const FixedHeader: Component = () => {
 
 const ScrollingHeader: Component = ({ className }) => {
 	const scrollingHeaderClassNames = classNames(
-		'bg-primary-main px-8 py-4 flex items-center justify-between fixed z-10 top-0 w-full shadow-xl',
+		'bg-primary-main px-5 py-4 flex items-center justify-between fixed z-10 top-0 w-full shadow-xl sm:px-8',
 		className
 	);
+
+	React.useEffect(() => {
+		MenuMobileEvents.closeMobileNavigation.dispatchEvent();
+	}, []);
 
 	return (
 		<header className={scrollingHeaderClassNames}>
 			<Image
-				className='w-16'
+				className='w-12 sm:w-16'
 				src='/images/logo-marrom.png'
 				alt='Sapataria do Elino'
 				width={64}
@@ -58,6 +63,7 @@ const Header: Component = () => {
 		showElement: showScrollingHeader,
 	} = useAnimatedRendering({
 		initialRenderState: false,
+		onHide: MenuMobileEvents.closeMobileNavigation.dispatchEvent,
 	});
 
 	const [debouncedHandleScroll, clearScrollDebounce] = createDebounce({

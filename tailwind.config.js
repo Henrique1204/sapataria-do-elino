@@ -23,6 +23,7 @@ module.exports = {
 				light: '#56342E',
 				main: '#462521',
 				dark: '#130A02',
+				menu: '#170C02',
 				darker: '#0A0501',
 			},
 			success: {

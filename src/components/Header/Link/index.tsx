@@ -4,7 +4,11 @@ import classNames from 'classnames';
 
 import * as Types from './types';
 
-const Link: Component<Types.LinkProps> = ({ variant, label, ...props }) => {
+const Link: Component<Types.LinkProps> = ({
+	variant = 'primary',
+	label,
+	...props
+}) => {
 	const linkClassNames = classNames(
 		'font-body px-4 py-3 text-base rounded-md capitalize font-semibold block flex items-center relative before:block before:w-1 before:h-0 before:rounded-sm before:absolute before:left-0 before:transition-all',
 		{

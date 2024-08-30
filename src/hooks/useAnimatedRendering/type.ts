@@ -1,6 +1,10 @@
 export type AnimatedRenderingProps = {
 	initialRenderState: boolean;
+
 	animationDuration?: number;
+
+	onHide?: () => void;
+	onShow?: () => void;
 };
 
 export type AnimatedRenderingReturn = {
