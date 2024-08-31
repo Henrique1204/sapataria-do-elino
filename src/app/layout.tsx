@@ -9,11 +9,6 @@ import Footer from 'components/Footer';
 
 import './global.css';
 
-export const metadata: Metadata = {
-	title: 'Sapataria do Elino',
-	description: '',
-};
-
 const RootLayout = ({
 	children,
 }: Readonly<{
