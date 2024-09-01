@@ -2,6 +2,8 @@ import { Metadata } from 'next';
 
 import * as HomeContent from 'components/Home';
 
+const AppUrl = process.env.NEXT_PUBLIC_APP_URL;
+
 export const metadata: Metadata = {
 	title: 'Sapataria do Elino',
 	description:
@@ -22,10 +24,17 @@ export const metadata: Metadata = {
 		title: 'Sapataria do Elino',
 		description:
 			'Serviços especializados em conserto e customização de sapatos, bolsas, malas e itens de couro. Qualidade garantida para todos os tipos de calçados e acessórios.',
-		url: 'https://sapatariadoelino.com.br',
+		url: AppUrl,
 		siteName: 'Sapataria do Elino',
 		locale: 'pt_BR',
 		type: 'website',
+		images: [
+			{
+				url: `${AppUrl}/images/og-image.png`,
+				width: 1200,
+				height: 630,
+			},
+		],
 	},
 	robots: {
 		index: true,
