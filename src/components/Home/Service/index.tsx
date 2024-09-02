@@ -31,7 +31,7 @@ const Service = async () => {
 					>
 						<Image
 							src={generateImageSrc(imageSrc)}
-							alt='Imagem ilustrativa de sapatos para conserto.'
+							alt={`Imagem ilustrativa de ${title} para conserto.`}
 							width={340}
 							height={220}
 						/>
