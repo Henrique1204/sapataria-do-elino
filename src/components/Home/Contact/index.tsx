@@ -1,9 +1,39 @@
 import React from 'react';
 
+import { ContactData } from 'types/actions/cms';
+
+import { formatPhone } from 'core/utils/formatters/phone';
+
 import * as Content from 'components/Content';
 import * as ContactInfo from 'components/ContactInfo';
 
-const Contact: Component = () => {
+const Contact: Component<ContactData> = ({
+	address,
+	emails,
+	phones,
+	mapUrl,
+}) => {
+	const isCellPhoneNumber = (phoneNumber: string): boolean => {
+		const CELL_PHONE_LENGTH = 11;
+
+		return phoneNumber.length === CELL_PHONE_LENGTH;
+	};
+
+	const generatePhoneLink = (phoneNumber: string): string => {
+		const COUNTRY_CODE = '55';
+		const WHATSAPP_URL = 'https://wa.me/';
+		const WHATSAPP_DEFAULT_MESSAGE = 'Ola%2C+estou+interessado+no+seu+servico';
+		const TEL_SCHEME = 'tel:+';
+
+		const isCellPhone = isCellPhoneNumber(phoneNumber);
+
+		if (isCellPhone) {
+			return `${WHATSAPP_URL}${COUNTRY_CODE}${phoneNumber}?text=${WHATSAPP_DEFAULT_MESSAGE}`;
+		}
+
+		return `${TEL_SCHEME}${COUNTRY_CODE}${phoneNumber}`;
+	};
+
 	return (
 		<Content.Wrapper id='contato' className='flex flex-col items-center gap-14'>
 			<Content.Title content='Contato' />
@@ -11,7 +41,7 @@ const Contact: Component = () => {
 			<div className='container'>
 				<div className='w-full sm:col-2 lg:col-3'>
 					<iframe
-						src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d912.2333849069178!2d-46.70807881842662!3d-23.85649363425104!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce37cb613abd43%3A0xbd88ea61a6d27ca5!2sAv.%20Primavera%20-%20Parelheiros%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2004896-120!5e0!3m2!1spt-BR!2sbr!4v1724713565460!5m2!1spt-BR!2sbr'
+						src={mapUrl}
 						width='500'
 						height='310'
 						style={{ border: 0 }}
@@ -25,10 +55,7 @@ const Contact: Component = () => {
 						<p className='hidden'>Sapataria do Elino</p>
 						<ContactInfo.Title content='Endereço' />
 
-						<ContactInfo.Info
-							content='Av. Primavera, 107 - Vargem Grande, próximo a Parelheiros. São Paulo, SP.'
-							className='max-w-[400px]'
-						/>
+						<ContactInfo.Info content={address} className='max-w-[400px]' />
 					</ContactInfo.Group>
 				</div>
 
@@ -36,37 +63,29 @@ const Contact: Component = () => {
 					<ContactInfo.Group>
 						<ContactInfo.Title content='Telefones' />
 
-						<ContactInfo.Info
-							as='a'
-							href='tel:+551143692594'
-							target='_blank'
-							content='(11) 4369-2594'
-						/>
-
-						<ContactInfo.Info
-							as='a'
-							href='tel:+5511948125511'
-							target='_blank'
-							content='(11) 94812-5511'
-						/>
+						{phones.map((phone) => (
+							<ContactInfo.Info
+								key={phone}
+								as='a'
+								href={generatePhoneLink(phone)}
+								target='_blank'
+								content={formatPhone(phone)}
+							/>
+						))}
 					</ContactInfo.Group>
 
 					<ContactInfo.Group className='mt-10'>
 						<ContactInfo.Title content='E-mail' />
 
-						<ContactInfo.Info
-							as='a'
-							href='mailto:sapataria_elino@gmail.com'
-							target='_blank'
-							content='sapataria_elino@gmail.com'
-						/>
-
-						<ContactInfo.Info
-							as='a'
-							href='mailto:paulo.souza@gmail.com'
-							target='_blank'
-							content='paulo.souza@gmail.com'
-						/>
+						{emails.map((email) => (
+							<ContactInfo.Info
+								key={email}
+								as='a'
+								href={`mailto:${email}`}
+								target='_blank'
+								content={email}
+							/>
+						))}
 					</ContactInfo.Group>
 				</div>
 			</div>

@@ -1,4 +1,4 @@
-import { Service, PriceVariations } from 'types/actions/services';
+import { Service, PriceVariations } from 'types/actions/cms';
 
 export type PriceProps = PriceVariations;
 

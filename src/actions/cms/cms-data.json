@@ -1,0 +1,80 @@
+{
+	"introduction": {
+		"apresentation": "Sapateiro por mais de 70 anos, especializado em consertos de sapatos, bolsas, malas e peças de couro no geral.",
+		"depoyment": "Ao longo da minha carreira, trabalhei em diversas sapatarias pelo estado de São Paulo e mantive minha própria sapataria no bairro Vargem Grande.",
+		"bannerSrc": "introduction-banner-md.jpg"
+	},
+	"services": [
+		{
+			"id": 1,
+			"title": "Sapatos",
+			"imageSrc": "card-shoe.jpg",
+			"itens": [
+				{ "id": 1, "name": "Engraxar Sapato", "price": 10 },
+				{ "id": 2, "name": "Substituição de Salto Pequeno", "price": 15 },
+				{ "id": 3, "name": "Substituição de Salto Médio", "price": 20 },
+				{ "id": 4, "name": "Substituição de Salto Grande", "price": 25 },
+				{ "id": 5, "name": "Substituição de Salto Masculino", "price": 20 },
+				{
+					"id": 6,
+					"name": "Troca de Sola Masculina",
+					"price": 120,
+					"fromOrPer": true
+				},
+				{
+					"id": 7,
+					"name": "Troca de Sola Feminina",
+					"price": 80,
+					"fromOrPer": true
+				},
+				{ "id": 8, "name": "Costura e Reparos", "uponRequest": true }
+			]
+		},
+		{
+			"id": 2,
+			"title": "Bolsas e Malas",
+			"imageSrc": "card-bag.jpg",
+			"itens": [
+				{ "id": 1, "name": "Conserto de Bags Motoboy", "uponRequest": true },
+				{ "id": 2, "name": "Substituição de Forro", "uponRequest": true },
+				{ "id": 3, "name": "Substituição de Zíper", "uponRequest": true },
+				{ "id": 4, "name": "Troca de Rodas/Puxador", "uponRequest": true },
+				{ "id": 5, "name": "Substituição de Puxador", "uponRequest": true },
+				{
+					"id": 6,
+					"name": "Restauração de Mala Quebrada",
+					"uponRequest": true
+				},
+				{ "id": 7, "name": "Costura", "uponRequest": true }
+			]
+		},
+		{
+			"id": 3,
+			"title": "Couros e Tecidos",
+			"imageSrc": "card-leather.jpg",
+			"itens": [
+				{
+					"id": 1,
+					"name": "Conserto de Itens",
+					"uponRequest": true
+				},
+				{
+					"id": 2,
+					"name": "Pintura de Itens",
+					"uponRequest": true
+				},
+				{
+					"id": 3,
+					"name": "Substituição de Estofado",
+					"uponRequest": true
+				}
+			]
+		}
+	],
+	"contact": {
+		"phones": ["1143692594", "11948125511"],
+		"emails": ["sapataria_elino@gmail.com", "paulo.souza@gmail.com"],
+		"address": "Av. Primavera, 107 - Vargem Grande, próximo a Parelheiros. São Paulo, SP.",
+		"mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d912.2333849069178!2d-46.70807881842662!3d-23.85649363425104!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce37cb613abd43%3A0xbd88ea61a6d27ca5!2sAv.%20Primavera%20-%20Parelheiros%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2004896-120!5e0!3m2!1spt-BR!2sbr!4v1724713565460!5m2!1spt-BR!2sbr"
+	}
+}

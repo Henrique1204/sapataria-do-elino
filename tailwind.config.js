@@ -60,7 +60,7 @@ module.exports = {
 		},
 		extend: {
 			backgroundImage: {
-				'card-gradient': 'linear-gradient(to bottom, #0A0501 80%, #201C15)',
+				'card-gradient': 'linear-gradient(to bottom, #0A0501 80%, #0F0F0F)',
 			},
 			transitionProperty: {
 				'max-height': 'max-height',

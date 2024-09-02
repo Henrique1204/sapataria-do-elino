@@ -1,5 +1,8 @@
 import { Metadata } from 'next';
 
+import introductionGet from 'actions/cms/introduction-get';
+import contactGet from 'actions/cms/contact-get';
+
 import * as HomeContent from 'components/Home';
 
 const AppUrl = process.env.NEXT_PUBLIC_APP_URL;
@@ -58,13 +61,16 @@ export const metadata: Metadata = {
 };
 
 const Home: Page<'Home'> = async () => {
+	const introductionData = await introductionGet();
+	const contactData = await contactGet();
+
 	return (
 		<>
-			<HomeContent.Introduction />
+			<HomeContent.Introduction {...introductionData} />
 
 			<HomeContent.Service />
 
-			<HomeContent.Contact />
+			<HomeContent.Contact {...contactData} />
 		</>
 	);
 };

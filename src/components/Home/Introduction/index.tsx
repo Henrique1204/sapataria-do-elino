@@ -1,19 +1,24 @@
 'use client';
-import React from 'react';
-
 import Image from 'next/image';
 
+import { IntroductionData } from 'types/actions/cms';
+
+import { generateImageSrc } from 'core/utils/images';
 import { handleScrollToSection } from 'core/utils/events/handleScrollToSection';
 
 import * as Content from 'components/Content';
 import Button from 'components/Button';
 
-const Introduction: Component = () => {
+const Introduction: Component<IntroductionData> = ({
+	apresentation,
+	depoyment,
+	bannerSrc,
+}) => {
 	return (
 		<Content.Wrapper id='sobre' className='container'>
 			<Image
 				className='rounded-xl grid-gap order-2 col-8 h-[300px] sm:col-2 sm:h-[520px] sm:order-1 lg:col-3 lg:h-[620px]'
-				src='/images/introduction-banner-md.jpg'
+				src={generateImageSrc(bannerSrc)}
 				alt='Foto monstrando um sapateiro trabalhando.'
 				width={600}
 				height={720}
@@ -24,14 +29,11 @@ const Introduction: Component = () => {
 				<Content.Title content='Sapataria do Elino' className='mb-6' />
 
 				<p className='text-content-main font-body text-base mb-4 text-center sm:text-xl sm:text-start'>
-					Sapateiro por mais de 70 anos, especializado em consertos de sapatos,
-					bolsas, malas e peças de couro no geral.
+					{apresentation}
 				</p>
 
 				<p className='text-content-main font-body text-xl hidden sm:block'>
-					Ao longo da minha carreira, trabalhei em diversas sapatarias pelo
-					estado de São Paulo e mantive minha própria sapataria no bairro Vargem
-					Grande.
+					{depoyment}
 				</p>
 
 				<Button
