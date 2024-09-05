@@ -1,7 +1,7 @@
 import React from 'react';
 
-import MobileNavigation from 'components/Header/Navigation/MobileNavigation';
-import DesktopNavigation from 'components/Header/Navigation/DesktopNavigation';
+import DesktopNavigation from './components/DesktopNavigation';
+import MobileNavigation from './components/MobileNavigation';
 
 import * as Types from '../Link/types';
 

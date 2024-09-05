@@ -11,6 +11,7 @@ import MenuMobileEvents from 'core/utils/events/customEvents/menuMobile';
 import useAnimatedRendering from 'hooks/useAnimatedRendering';
 
 import { Navigation } from './Navigation';
+import MobileMenu from './Navigation/components/MobileMenu';
 
 const FixedHeader: Component = () => {
 	return (
@@ -97,6 +98,8 @@ const Header: Component = () => {
 
 	return (
 		<>
+			<MobileMenu />
+
 			<FixedHeader />
 
 			{isScrollingHeaderRendered && (

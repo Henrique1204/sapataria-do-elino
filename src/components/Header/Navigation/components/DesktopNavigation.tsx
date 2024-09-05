@@ -4,10 +4,10 @@ import { handleScrollToSection } from 'core/utils/events/handleScrollToSection';
 
 import Button from 'components/Button';
 
-import { LINKS } from './constants';
+import { LINKS } from '../constants';
 
-import * as Types from '../Link/types';
-import Link from '../Link';
+import * as Types from '../../Link/types';
+import Link from '../../Link';
 
 const DesktopNavigation: Component<Pick<Types.LinkProps, 'variant'>> = ({
 	variant = 'primary',
