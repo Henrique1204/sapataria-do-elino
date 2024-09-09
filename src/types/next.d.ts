@@ -7,6 +7,7 @@ declare global {
 
 	export type PageProps = {
 		Home: NextPage;
+		Cms: NextPage;
 	};
 
 	export type PagesName = keyof PageProps;

@@ -15,8 +15,12 @@ const DesktopNavigation: Component<Pick<Types.LinkProps, 'variant'>> = ({
 	return (
 		<nav className='hidden sm:block'>
 			<ul className='flex gap-2'>
-				{LINKS.map(({ href, label, isButton }) => {
+				{LINKS.map(({ href, label, isButton, isExternal }) => {
 					const key = `link-item-${label.toLowerCase()}`;
+
+					const handleOnClick = !isExternal
+						? handleScrollToSection(href)
+						: undefined;
 
 					if (isButton) {
 						return (
@@ -25,7 +29,7 @@ const DesktopNavigation: Component<Pick<Types.LinkProps, 'variant'>> = ({
 									as={'a'}
 									href={href}
 									variant={variant}
-									onClick={handleScrollToSection(href)}
+									onClick={handleOnClick}
 								>
 									{label}
 								</Button>
@@ -39,7 +43,7 @@ const DesktopNavigation: Component<Pick<Types.LinkProps, 'variant'>> = ({
 								label={label}
 								href={href}
 								variant={variant}
-								onClick={handleScrollToSection(href)}
+								onClick={handleOnClick}
 							/>
 						</li>
 					);

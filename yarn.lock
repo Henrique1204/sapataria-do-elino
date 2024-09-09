@@ -355,6 +355,11 @@
     "@types/prop-types" "*"
     csstype "^3.0.2"
 
+"@types/systemjs@^6.15.0":
+  version "6.15.0"
+  resolved "https://registry.yarnpkg.com/@types/systemjs/-/systemjs-6.15.0.tgz#098ea50650bd128550e9564e2c818cde17d22aee"
+  integrity sha512-cnlGl3wretbgmtNOo43OtIUctcAeXddy+vrBFp4Pz2spuEfsTS/sol0KsUG1qmP1OeU4SgbRYPKxNIlkkXdUBQ==
+
 "@typescript-eslint/parser@^5.4.2 || ^6.0.0 || 7.0.0 - 7.2.0":
   version "7.2.0"
   resolved "https://registry.npmjs.org/@typescript-eslint/parser/-/parser-7.2.0.tgz"

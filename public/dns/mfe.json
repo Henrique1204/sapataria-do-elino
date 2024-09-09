@@ -1,0 +1,6 @@
+{
+	"imports": {
+		"@henrique1204/cms": "//localhost:3001/index.js",
+		"@henrique1204/cms-utility": "//localhost:3002/index.js"
+	}
+}

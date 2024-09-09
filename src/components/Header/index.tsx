@@ -12,18 +12,21 @@ import useAnimatedRendering from 'hooks/useAnimatedRendering';
 
 import { Navigation } from './Navigation';
 import MobileMenu from './Navigation/components/MobileMenu';
+import Link from 'next/link';
 
 const FixedHeader: Component = () => {
 	return (
 		<header className='bg-transparent px-5 pt-10 flex items-center justify-between sm:px-8'>
-			<Image
-				className='w-12 sm:w-36'
-				src='/images/logo-amarelo.png'
-				alt='Sapataria do Elino'
-				width={128}
-				height={128}
-				priority
-			/>
+			<Link href='/'>
+				<Image
+					className='w-12 sm:w-36'
+					src='/images/logo-amarelo.png'
+					alt='Sapataria do Elino'
+					width={128}
+					height={128}
+					priority
+				/>
+			</Link>
 
 			<Navigation />
 		</header>
@@ -42,14 +45,17 @@ const ScrollingHeader: Component = ({ className }) => {
 
 	return (
 		<header className={scrollingHeaderClassNames}>
-			<Image
-				className='w-12 sm:w-16'
-				src='/images/logo-marrom.png'
-				alt='Sapataria do Elino'
-				width={64}
-				height={64}
-				priority
-			/>
+			<Link href='/'>
+				<Image
+					className='w-12 sm:w-16'
+					src='/images/logo-marrom.png'
+					alt='Sapataria do Elino'
+					width={64}
+					height={64}
+					priority
+					role='presentation'
+				/>
+			</Link>
 
 			<Navigation variant='secondary' />
 		</header>
