@@ -3,10 +3,19 @@
 import React from 'react';
 
 import MFEService from 'core/utils/mfe';
+import { setupCMS } from 'core/utils/mfe/cms';
 
 const Boot: Component = () => {
+	const startMFE = async () => {
+		try {
+			await MFEService.onStart();
+
+			await setupCMS();
+		} catch (_) {}
+	};
+
 	React.useEffect(() => {
-		MFEService.onStart();
+		startMFE();
 
 		return () => {
 			MFEService.onDestroy();
