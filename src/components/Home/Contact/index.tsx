@@ -13,6 +13,9 @@ const Contact: Component<ContactData> = ({
 	phones,
 	mapUrl,
 }) => {
+	const hasMultiplesPhones = phones.length > 1;
+	const hasMultiplesEmails = emails.length > 1;
+
 	const isCellPhoneNumber = (phoneNumber: string): boolean => {
 		const CELL_PHONE_LENGTH = 11;
 
@@ -61,7 +64,9 @@ const Contact: Component<ContactData> = ({
 
 				<div className='pl-0 col-8 sm:col-3 sm:pl-6 lg:pl-12'>
 					<ContactInfo.Group>
-						<ContactInfo.Title content='Telefones' />
+						<ContactInfo.Title
+							content={hasMultiplesPhones ? 'Telefones' : 'Telefone'}
+						/>
 
 						{phones.map((phone) => (
 							<ContactInfo.Info
@@ -75,7 +80,9 @@ const Contact: Component<ContactData> = ({
 					</ContactInfo.Group>
 
 					<ContactInfo.Group className='mt-10'>
-						<ContactInfo.Title content='E-mail' />
+						<ContactInfo.Title
+							content={hasMultiplesEmails ? 'E-mails' : 'E-mail'}
+						/>
 
 						{emails.map((email) => (
 							<ContactInfo.Info
