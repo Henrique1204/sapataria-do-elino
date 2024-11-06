@@ -13,7 +13,11 @@ interface MFERoute {
 class MFEService {
 	private static singleSPA: any;
 
-	public static async register(mfeName: string, route: string): Promise<void> {
+	public static async register<T>(
+		mfeName: string,
+		route: string,
+		props: T
+	): Promise<void> {
 		await waitLoadSystemJs();
 
 		const singleSpa = await System.import('single-spa');
@@ -27,7 +31,8 @@ class MFEService {
 			() => System.import(mfeName),
 			(location: { pathname: string }) => {
 				return location.pathname.startsWith(route);
-			}
+			},
+			props
 		);
 	}
 
