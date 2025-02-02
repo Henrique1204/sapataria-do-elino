@@ -1,7 +1,7 @@
 import type { UseBoundStore, StoreApi } from 'zustand';
 
 type ContentControl = {
-	onReceiveValue: () => Promise<string>;
+	onReceiveValue: () => Promise<Record<string, string | string[]>>;
 	onUpdateValue: (value: string) => Promise<void>;
 };
 
@@ -11,13 +11,13 @@ type ContentField = {
 	type: string;
 	label: string;
 	defaultValue: any;
-} & ContentControl;
+};
 
 type ContentGroup = {
 	id: string;
 	title: string;
 	fields: string[];
-};
+} & ContentControl;
 
 type CMSSchemaStore = {
 	groups: ContentGroup[];

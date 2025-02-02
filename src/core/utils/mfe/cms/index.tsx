@@ -33,6 +33,8 @@ const setupIntroductionCMS = async () => {
 		createGroup({
 			id: GROUP_ID,
 			title: 'Introdução',
+			onReceiveValue: introductionGet,
+			onUpdateValue: async () => {},
 		});
 
 		addField({
@@ -41,12 +43,6 @@ const setupIntroductionCMS = async () => {
 			groupId: GROUP_ID,
 			label: 'Apresentação',
 			type: 'text',
-			onReceiveValue: async () => {
-				const { apresentation } = await introductionGet();
-
-				return apresentation;
-			},
-			onUpdateValue: async () => {},
 		});
 
 		addField({
@@ -55,12 +51,6 @@ const setupIntroductionCMS = async () => {
 			groupId: GROUP_ID,
 			label: 'Banner',
 			type: 'image',
-			onReceiveValue: async () => {
-				const { bannerSrc } = await introductionGet();
-
-				return bannerSrc;
-			},
-			onUpdateValue: async () => {},
 		});
 
 		addField({
@@ -69,12 +59,6 @@ const setupIntroductionCMS = async () => {
 			groupId: GROUP_ID,
 			label: 'Depoimento',
 			type: 'text',
-			onReceiveValue: async () => {
-				const { depoyment } = await introductionGet();
-
-				return depoyment;
-			},
-			onUpdateValue: async () => {},
 		});
 	} catch (error) {
 		await _handleCMSError(error);
@@ -94,6 +78,10 @@ const setupServicesCMS = async () => {
 		createGroup({
 			id: GROUP_ID,
 			title: 'Serviços',
+			onReceiveValue: async () => {
+				return {};
+			},
+			onUpdateValue: async () => {},
 		});
 	} catch (error) {
 		await _handleCMSError(error);
@@ -113,6 +101,8 @@ const setupContactCMS = async () => {
 		createGroup({
 			id: GROUP_ID,
 			title: 'Contato',
+			onReceiveValue: contactGet,
+			onUpdateValue: async () => {},
 		});
 
 		addField({
@@ -121,12 +111,6 @@ const setupContactCMS = async () => {
 			groupId: GROUP_ID,
 			label: 'Endereço',
 			type: 'text',
-			onReceiveValue: async () => {
-				const { address } = await contactGet();
-
-				return address;
-			},
-			onUpdateValue: async () => {},
 		});
 
 		addField({
@@ -135,12 +119,6 @@ const setupContactCMS = async () => {
 			groupId: GROUP_ID,
 			label: 'Url do Mapa',
 			type: 'text',
-			onReceiveValue: async () => {
-				const { mapUrl } = await contactGet();
-
-				return mapUrl;
-			},
-			onUpdateValue: async () => {},
 		});
 	} catch (error) {
 		await _handleCMSError(error);
