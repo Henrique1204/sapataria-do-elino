@@ -7,11 +7,20 @@ declare global {
 
 	export type PageProps = {
 		Home: NextPage;
+		Login: NextPage;
+		ValidateAccount: NextPage;
 	};
 
 	export type PagesName = keyof PageProps;
 
 	export type Page<_PageName extends PagesName> = PageProps[_PageName];
+
+	export type ActionReturn<T = {}> = {
+		code: number;
+		message?: string;
+		data?: T;
+		success: boolean;
+	};
 }
 
 export {};
