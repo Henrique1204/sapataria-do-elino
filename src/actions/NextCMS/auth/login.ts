@@ -60,6 +60,8 @@ const Login = async (loginCredentials: {
 			},
 		};
 	} catch (error) {
+		console.error(error);
+
 		return {
 			success: false,
 			message:

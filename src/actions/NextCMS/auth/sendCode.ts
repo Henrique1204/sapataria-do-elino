@@ -26,6 +26,8 @@ const sendCode = async (emailEntry?: string): Promise<ActionReturn<void>> => {
 			code: 200,
 		};
 	} catch (error) {
+		console.error(error);
+
 		return {
 			success: false,
 			message:

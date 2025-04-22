@@ -63,7 +63,8 @@ const validateCode = async (code: string): Promise<ActionReturn> => {
 			code: 200,
 		};
 	} catch (error) {
-		console.log(error);
+		console.error(error);
+
 		return {
 			success: false,
 			message:
