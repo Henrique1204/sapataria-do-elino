@@ -59,7 +59,21 @@ export const createUserCodeByUserEmail = async (
 
 	await connectDB();
 
-	await UserCode.create({ userId: user._id, code, expirationDate });
+	try {
+		await UserCode.create({ userId: user._id, code, expirationDate });
+	} catch (error: any) {
+		const MONGODB_DUPLICATE_KEY_ERROR_CODE = 11000;
+
+		if (error.code === MONGODB_DUPLICATE_KEY_ERROR_CODE) {
+			await UserCode.findOneAndUpdate(
+				{ userId: user._id },
+				{ code, expirationDate },
+				{ upsert: true }
+			);
+		} else {
+			throw error;
+		}
+	}
 };
 
 export const updateUserCodeByUserEmail = async (
