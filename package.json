@@ -14,13 +14,20 @@
 		"tailwind:init": "npx tailwindcss init"
 	},
 	"dependencies": {
+		"@types/nodemailer": "^6.4.17",
+		"bcryptjs": "^3.0.2",
 		"classnames": "^2.5.1",
+		"jsonwebtoken": "^9.0.2",
+		"mongoose": "^8.12.2",
 		"next": "14.2.5",
+		"nodemailer": "^6.10.0",
 		"react": "^18",
 		"react-dom": "^18",
+		"zod": "^3.24.2",
 		"zustand": "^4.5.5"
 	},
 	"devDependencies": {
+		"@types/jsonwebtoken": "^9.0.9",
 		"@types/node": "^20",
 		"@types/react": "^18",
 		"@types/react-dom": "^18",
