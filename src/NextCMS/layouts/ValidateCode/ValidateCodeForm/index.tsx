@@ -2,20 +2,22 @@
 
 import React from 'react';
 
-import { Input, Button, Toaster } from '../../components';
-
-import validateCode from 'actions/NextCMS/auth/validateCode';
 import sendCode from 'actions/NextCMS/auth/sendCode';
 
-import useTimer from '../../hooks/useTimer';
+import useTimer from '../../../hooks/useTimer';
+
+import * as Types from './types';
+
+import { Input, Button, Toaster } from '../../../components';
 
 const NUMBER_OF_DIGITS_IN_CODE = 4;
-const TIME_TO_READ_MESSAGE = 2 * 1000;
 
 const THRESHOLD_TIMER = 0;
 const START_TIMER = 30;
 
-const ValidateCodeForm: Component = () => {
+const ValidateCodeForm: Component<Types.ValidateCodeFormProps> = ({
+	onSubmitCode,
+}) => {
 	const [code, setcode] = React.useState<string>('');
 
 	const [isSubmitingForm, setIsSubmitingForm] = React.useState<boolean>(false);
@@ -41,20 +43,7 @@ const ValidateCodeForm: Component = () => {
 		try {
 			setIsSubmitingForm(true);
 
-			const { success, message } = await validateCode(code);
-
-			if (!success) throw new Error(message);
-
-			Toaster.open({
-				message:
-					'Usuário válidado, por favor confirme suas credenciais novamente.',
-				position: 'topRight',
-				status: 'success',
-			});
-
-			return setTimeout(() => {
-				window.location.href = '/auth/login';
-			}, TIME_TO_READ_MESSAGE);
+			await onSubmitCode(code);
 		} catch (e) {
 			Toaster.open({
 				message: (e as Error).message,

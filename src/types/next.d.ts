@@ -9,6 +9,7 @@ declare global {
 		Home: NextPage;
 		Login: NextPage;
 		ValidateAccount: NextPage;
+		ValidateUserEmail: NextPage;
 	};
 
 	export type PagesName = keyof PageProps;

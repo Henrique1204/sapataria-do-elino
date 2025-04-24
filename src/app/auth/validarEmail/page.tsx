@@ -1,7 +1,7 @@
 import * as NextCMSComponents from 'NextCMS/components';
 import * as NextCMSLayouts from 'NextCMS/layouts';
 
-const ValidateAccount: Page<'ValidateAccount'> = async () => {
+const ValidateUserEmail: Page<'ValidateUserEmail'> = async () => {
 	return (
 		<>
 			<NextCMSComponents.HeaderTitles
@@ -9,9 +9,9 @@ const ValidateAccount: Page<'ValidateAccount'> = async () => {
 				subtitle='Cheque seu e-mail'
 			/>
 
-			<NextCMSLayouts.ValidateCodeForm />
+			<NextCMSLayouts.ValidateCodeInResetPassword />
 		</>
 	);
 };
 
-export default ValidateAccount;
+export default ValidateUserEmail;
