@@ -58,9 +58,8 @@ export const Toast: Component<Partial<Types.ToasterProps>> = ({
 							transition: 'opacity 0.3s',
 							...toastPositionStyle,
 						}}
-					>
-						{toaster.message}
-					</div>
+						dangerouslySetInnerHTML={{ __html: toaster.message }}
+					/>
 				);
 			})}
 		</>

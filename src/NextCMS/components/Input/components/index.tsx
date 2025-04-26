@@ -24,7 +24,7 @@ export const Label: Component<HTMLProps<HTMLLabelElement>> = ({
 	id,
 }) => {
 	const labelClassName = classNames(
-		'block text-lg text-cms-content-dark',
+		'block text-lg text-cms-content-dark mb-2',
 		className
 	);
 
@@ -40,7 +40,7 @@ export const Field = React.forwardRef<
 	HTMLProps<HTMLInputElement> & { testId: string }
 >(({ testId = 'input-field', className, id, required, ...props }, ref) => {
 	const inputClassName = classNames(
-		'mt-2 block w-full font- px-4 py-3 border text-cms-content-dark border-cms-content-main rounded-lg text-md border-box transition-all placeholder-cms-content-main placeholder',
+		'block w-full font- px-4 py-3 border text-cms-content-dark border-cms-content-main rounded-lg text-md border-box transition-all placeholder-cms-content-main placeholder',
 		'focus:ring-cms-primary-main focus:border-cms-primary-main hover:ring-cms-primary-main hover:border-cms-primary-main',
 		className
 	);

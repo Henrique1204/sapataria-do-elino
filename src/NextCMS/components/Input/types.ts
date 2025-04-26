@@ -10,6 +10,8 @@ export type InputBaseProps = HTMLProps<HTMLInputElement> & {
 		field?: string;
 	};
 
+	iconELement?: React.ReactNode;
+
 	validateError?: (value: string) => string;
 	mask?: (value?: string) => string;
 	onChangeText?: (text: string) => void;

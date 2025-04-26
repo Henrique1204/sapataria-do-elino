@@ -19,7 +19,7 @@ const InputPassword: React.FC<InputBaseProps> = (props) => {
 	};
 
 	const eyeButtonClassname = classNames(
-		'absolute w-6 h-6 right-2 flex bg-transparent cursor-pointer items-center focus:outline-none text-cms-content-main top-[24px]'
+		'absolute w-6 h-6 right-2 flex bg-transparent cursor-pointer items-center focus:outline-none text-cms-content-main'
 	);
 
 	return (
@@ -28,12 +28,13 @@ const InputPassword: React.FC<InputBaseProps> = (props) => {
 				{...props}
 				type={showPassword ? 'text' : 'password'}
 				onValidate={setHasValidateError}
-			/>
-
-			<Icon
-				name={showPassword ? 'Eye' : 'EyeSlash'}
-				className={eyeButtonClassname}
-				onClick={togglePasswordVisibility}
+				iconELement={
+					<Icon
+						name={showPassword ? 'Eye' : 'EyeSlash'}
+						className={eyeButtonClassname}
+						onClick={togglePasswordVisibility}
+					/>
+				}
 			/>
 		</div>
 	);
