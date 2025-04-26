@@ -17,11 +17,11 @@ export const generateAuthCode = () => {
 
 export const sendAuthCodeEmail = async (userEmail: string) => {
 	const code = generateAuthCode();
-	const expirationDate = Date.now() + EXPIRATION_TIME * 1000;
+	const expirationDateInMiliseconds = Date.now() + EXPIRATION_TIME * 1000;
 
 	await createUserCodeByUserEmail(userEmail, {
 		code,
-		expirationDate,
+		expirationDate: new Date(expirationDateInMiliseconds),
 	});
 
 	await sendEmail({

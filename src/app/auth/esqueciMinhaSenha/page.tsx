@@ -1,17 +1,17 @@
 import * as NextCMSComponents from 'NextCMS/components';
 import * as NextCMSLayouts from 'NextCMS/layouts';
 
-const Login: Page<'Login'> = async () => {
+const ForgotPassword: Page<'ForgotPassword'> = async () => {
 	return (
 		<>
 			<NextCMSComponents.HeaderTitles
-				title='Realize seu login abaixo:'
-				subtitle='Que bom ter você aqui!!'
+				title='Digite seu e-mail abaixo para enviarmos as instruções ao seu e-mail:'
+				subtitle='Resete sua senha'
 			/>
 
-			<NextCMSLayouts.LoginForm />
+			<NextCMSLayouts.EmailToResetPassword />
 		</>
 	);
 };
 
-export default Login;
+export default ForgotPassword;

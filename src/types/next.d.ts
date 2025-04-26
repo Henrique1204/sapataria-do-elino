@@ -8,8 +8,10 @@ declare global {
 	export type PageProps = {
 		Home: NextPage;
 		Login: NextPage;
+		ForgotPassword: NextPage;
 		ValidateAccount: NextPage;
 		ValidateUserEmail: NextPage;
+		RegisterNewPassword: NextPage;
 	};
 
 	export type PagesName = keyof PageProps;

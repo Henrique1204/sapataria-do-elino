@@ -6,7 +6,7 @@ import { getHoursInSeconds } from 'NextCMS/core/utils/time';
 
 const COOKIE_KEY_PREFIX = 'sapataria_elino:nextcms';
 
-type CookieKey = 'token' | 'email';
+export type CookieKey = 'token' | 'email';
 
 export const getCookie = async (
 	cookieKey: CookieKey

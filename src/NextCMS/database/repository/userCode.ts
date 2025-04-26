@@ -3,9 +3,9 @@
 import {
 	userCodeSchema,
 	userIdSchema,
-} from '../../core/utils/validations/userCodeSchemas';
+} from '../../core/utils/validations/schemas/userCodeSchemas';
 
-import { emailSchema } from '../../core/utils/validations/userSchemas';
+import { emailSchema } from '../../core/utils/validations/schemas/userSchemas';
 
 import { connectDB } from '../connection';
 
@@ -17,7 +17,7 @@ import { getUserByEmail } from '../repository/user';
 export const getUserCodeByUserId = async (
 	userId: IUser['_id']
 ): Promise<IUserCode> => {
-	const parsed = userIdSchema.safeParse(userId);
+	const parsed = userIdSchema.safeParse(userId.toString());
 
 	if (!parsed.success) throw new Error('Id inválido');
 
@@ -31,7 +31,7 @@ export const getUserCodeByUserId = async (
 export const deleteUserCodeByUserId = async (
 	userId: IUser['_id']
 ): Promise<void> => {
-	const userIdParsed = userIdSchema.safeParse(userId);
+	const userIdParsed = userIdSchema.safeParse(userId.toString());
 
 	if (!userIdParsed.success) throw new Error('Id inválido');
 

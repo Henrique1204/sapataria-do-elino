@@ -10,9 +10,9 @@ import { getUserByEmail } from 'NextCMS/database/repository/user';
 
 import { sendAuthCodeEmail } from 'NextCMS/core/services/authCodeService';
 import { generateToken, saveToken } from 'NextCMS/core/services/authToken';
-import { setCookie } from 'NextCMS/core/services/cookies';
+import { deleteCookie, setCookie } from 'NextCMS/core/services/cookies';
 
-import { userCredentialsSchema } from 'NextCMS/core/utils/validations/userSchemas';
+import { userCredentialsSchema } from 'NextCMS/core/utils/validations/schemas/userSchemas';
 
 const Login = async (loginCredentials: {
 	email: string;
@@ -35,7 +35,7 @@ const Login = async (loginCredentials: {
 		if (!isPasswordValid) throw new APIException('Credenciais inválidas', 401);
 
 		if (!user.isActived) {
-			setCookie('email', user.email);
+			setCookie('email', user.email, { timeToExpireInHour: 1 });
 
 			await sendAuthCodeEmail(user.email);
 
@@ -51,6 +51,7 @@ const Login = async (loginCredentials: {
 		const token = generateToken(user)!;
 
 		saveToken(token);
+		deleteCookie('email');
 
 		return {
 			success: true,
