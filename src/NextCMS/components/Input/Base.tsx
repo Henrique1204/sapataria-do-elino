@@ -13,6 +13,7 @@ export const InputBase: Component<Types.InputBaseProps> = ({
 	testId = 'input-base',
 	elementsClasses,
 	label,
+	iconELement,
 	onChange,
 	onBlur,
 	onFocus,
@@ -69,14 +70,18 @@ export const InputBase: Component<Types.InputBaseProps> = ({
 				className={elementsClasses?.label}
 			/>
 
-			<Field
-				testId={`${testId}-field`}
-				{...props}
-				className={elementsClasses?.field}
-				onChange={handleOnChange}
-				onBlur={handleOnBlur}
-				onFocus={handleOnFocus}
-			/>
+			<div className='flex relative flex-1 items-center'>
+				<Field
+					testId={`${testId}-field`}
+					{...props}
+					className={elementsClasses?.field}
+					onChange={handleOnChange}
+					onBlur={handleOnBlur}
+					onFocus={handleOnFocus}
+				/>
+
+				{iconELement}
+			</div>
 
 			{hasError && (
 				<ErrorMessage

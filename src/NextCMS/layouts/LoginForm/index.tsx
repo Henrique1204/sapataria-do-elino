@@ -2,27 +2,33 @@
 
 import React from 'react';
 
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+
 import LoginAction from 'actions/NextCMS/auth/login';
 
-import {
-	validateField,
-	validateIsEmpty,
-} from '../../core/utils/validations/form';
+import { validateField, validations } from '../../core/utils/validations/ui';
 
 import { Button, Input, Toaster } from '../../components';
 
 const FORM_VALIDATIONS = {
-	email: validateField('O campo de e-mail é obrigatório', validateIsEmpty),
-	password: validateField('O campo de senha é obrigatório', validateIsEmpty),
+	email: validateField(
+		'O campo de e-mail é obrigatório',
+		validations.common.isEmpty
+	),
+	password: validateField(
+		'O campo de senha é obrigatório',
+		validations.common.isEmpty
+	),
 };
-
-const TIME_TO_READ_MESSAGE = 1 * 1000;
 
 const LoginForm: Component = () => {
 	const [email, setEmail] = React.useState<string>('');
 	const [password, setPassword] = React.useState<string>('');
 
 	const [isSubmitingForm, setIsSubmitingForm] = React.useState<boolean>(false);
+
+	const router = useRouter();
 
 	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
@@ -35,7 +41,11 @@ const LoginForm: Component = () => {
 				password,
 			});
 
-			if (!response) return;
+			if (!response) {
+				throw new Error(
+					'Não foi possível realizar a ação nesse momento, tente novamente mais tarde.'
+				);
+			}
 
 			const { success, message } = response;
 
@@ -48,12 +58,12 @@ const LoginForm: Component = () => {
 					status: 'info',
 				});
 
-				return setTimeout(() => {
-					window.location.href = '/auth/validarCodigo';
-				}, TIME_TO_READ_MESSAGE);
+				router.push('/auth/validarConta');
+
+				return;
 			}
 
-			window.location.href = '/cms';
+			router.push('/cms');
 		} catch (e) {
 			Toaster.open({
 				message: (e as Error).message,
@@ -65,7 +75,8 @@ const LoginForm: Component = () => {
 		}
 	};
 
-	const hasErrorInForm = validateIsEmpty(email) || validateIsEmpty(password);
+	const hasErrorInForm =
+		validations.common.isEmpty(email) || validations.common.isEmpty(password);
 
 	return (
 		<form onSubmit={handleSubmit} className='w-full'>
@@ -88,9 +99,15 @@ const LoginForm: Component = () => {
 				validateError={FORM_VALIDATIONS.password}
 			/>
 
-			<Button type='button' variant='link' className='ml-auto mr-[-12px] mb-1'>
-				Esqueci minha senha
-			</Button>
+			<Link href='/auth/esqueciMinhaSenha'>
+				<Button
+					type='button'
+					variant='link'
+					className='ml-auto mr-[-12px] mb-1'
+				>
+					Esqueci minha senha
+				</Button>
+			</Link>
 
 			<Button
 				type='submit'
