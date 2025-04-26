@@ -97,6 +97,7 @@ module.exports = {
 						main: '#85949C',
 						dark: '#000000',
 					},
+					gray: '#D9D9D9',
 				},
 			},
 		},
