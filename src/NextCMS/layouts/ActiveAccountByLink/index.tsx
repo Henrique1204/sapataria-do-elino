@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 
 import validateActivationCodeByToken from 'actions/NextCMS/auth/validateActivationCodeByToken';
 
@@ -12,12 +12,10 @@ import { Toaster, Loader, Button, GradientCheckCircle } from '../../components';
 const INITIAL_COUNTDOWN = 5;
 const LOGIN_PATH = '/auth/login';
 
-const ActiveAccountByLink: Component = () => {
+const ActiveAccountByLink: Component<{ token: string }> = ({ token }) => {
 	const [status, setStatus] = React.useState<'loading' | 'success'>('loading');
 
 	const router = useRouter();
-	const params = useSearchParams();
-	const token = params.get('token');
 
 	const hasValidated = React.useRef(false);
 

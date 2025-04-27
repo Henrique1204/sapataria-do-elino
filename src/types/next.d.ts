@@ -12,7 +12,10 @@ declare global {
 		ValidateAccount: NextPage;
 		ValidateUserEmail: NextPage;
 		RegisterNewPassword: NextPage;
-		ActiveAccountByLink: NextPage;
+		ActiveAccountByLink: NextPage<{
+			token: string;
+		}>;
+		CMS: NextPage;
 	};
 
 	export type PagesName = keyof PageProps;
