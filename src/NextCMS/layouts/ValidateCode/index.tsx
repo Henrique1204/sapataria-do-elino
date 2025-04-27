@@ -5,6 +5,7 @@ import React from 'react';
 import { useRouter } from 'next/navigation';
 
 import validateCode from 'actions/NextCMS/auth/validateCode';
+import validateActivationCode from 'actions/NextCMS/auth/validateActivationCode';
 
 import { Toaster } from '../../components';
 
@@ -14,7 +15,7 @@ export const ValidateCodeInValidateAccountFlow: Component = () => {
 	const router = useRouter();
 
 	const handleSubmitCode = async (code: string) => {
-		const { success, message } = await validateCode(code);
+		const { success, message } = await validateActivationCode(code);
 
 		if (!success) throw new Error(message);
 

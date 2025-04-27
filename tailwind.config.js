@@ -19,6 +19,7 @@ module.exports = {
 			boxShadow: {
 				['button-primary']: '0 0 0 3px #0A0501, 0 0 0 4px #F0AC3C',
 				['button-secondary']: '0 0 0 3px #F0AC3C, 0 0 0 4px #0A0501',
+				['cms-primary-circle']: '0 0 0 12px #09466C, 0 0 0 24px #2B688E',
 			},
 			keyframes: {
 				slideDown: {

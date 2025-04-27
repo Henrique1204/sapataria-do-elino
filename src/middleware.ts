@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-const allowedOrigins = [process.env.NEXT_PUBLIC_APP_URL];
+const allowedOrigins = [process.env.NEXT_PUBLIC_APP_URL!];
 
 const corsMiddleware = (request: NextRequest) => {
 	const isProtectedRouteWithCors =
@@ -37,26 +37,36 @@ const tokenValidateMiddleware = async (request: NextRequest) => {
 	if (!isAuthenticatedRoute) return;
 
 	const token = request.cookies.get('token')?.value;
+	const isAuthenticated = Boolean(token);
+	const isCmsRoute = request.nextUrl.pathname.startsWith('/cms');
+	const isLoginRoute = request.nextUrl.pathname.startsWith('/auth/login');
 
-	const isAuthenticated = token ? true : false;
-	const isRedirectingToACms = request.nextUrl.pathname.startsWith('/cms');
-
-	if (!isAuthenticated && isRedirectingToACms) {
+	if (!isAuthenticated && isCmsRoute) {
 		return NextResponse.redirect(new URL('/auth/login', request.url));
 	}
 
-	const isRedirectingToLogin =
-		request.nextUrl.pathname.startsWith('/auth/login');
-
-	if (isAuthenticated && isRedirectingToLogin) {
+	if (isAuthenticated && isLoginRoute) {
 		return NextResponse.redirect(new URL('/cms', request.url));
 	}
 
 	return NextResponse.next();
 };
 
-export function middleware(request: NextRequest) {
+export async function middleware(request: NextRequest) {
 	corsMiddleware(request);
 
-	tokenValidateMiddleware(request);
+	if (request.nextUrl.pathname === '/auth/ativarConta') {
+		const token = request.nextUrl.searchParams.get('token');
+		if (!token) {
+			return NextResponse.redirect(new URL('/auth/login', request.url));
+		}
+	}
+
+	await tokenValidateMiddleware(request);
+
+	return NextResponse.next();
 }
+
+export const config = {
+	matcher: ['/auth/:path*', '/cms/:path*'],
+};
